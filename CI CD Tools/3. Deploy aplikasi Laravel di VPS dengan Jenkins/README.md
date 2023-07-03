@@ -46,9 +46,8 @@
 
 ## Cara menjalankan Pipeline Jenkins
 * [User Handbook Pipeline](https://www.jenkins.io/doc/book/pipeline/)
-* [Referensi Jenkinsfile content](https://raw.githubusercontent.com/agung3wi/kelasdevops/main/Jenkinsfile)
 
-1. Buat file `Jenkinsfile` di dalam `DEVOPSAPRIL-LARAVEL` dengan menggunakan code editor untuk mengisikan script agar pipeline bisa berjalan
+1. Buat file `Jenkinsfile` di dalam folder project dengan menggunakan code editor untuk mengisikan script agar pipeline bisa berjalan
 2. Pada Jenkinsfile, copy-kan script berikut
    ```
    node {
@@ -64,8 +63,10 @@
 
 
        // Testing
-       docker.image('ubuntu').inside('-u root') {
-          sh 'echo "Ini adalah test"'
+       stage("Test"){
+         docker.image('ubuntu').inside('-u root') {
+            sh 'echo "Ini adalah test"'
+         }
        }
    }
    ```
@@ -82,15 +83,8 @@
    
    <img width="220" alt="Screen Shot 2022-05-12 at 15 10 23" src="https://user-images.githubusercontent.com/38523284/168023780-9a13a7fc-df06-4155-bf4f-1227f7a1ac55.png">
 
-5. Kemudian menuju ke terminal, kita akan menyiapkan 2 host yaitu untuk development dan production. Dengan menambah menggunakan perintah `nano` dan `ansible-playbook`
-   ```
-   ansible-playbook -i hosts create_hosts.yml
-   ```
-   Jika berhasil maka akan muncuk 2 host seperti gambar berikut :
-   
-   <img width="500" alt="Screen Shot 2022-05-13 at 10 46 33" src="https://user-images.githubusercontent.com/38523284/168207381-4f5f2d43-5ce1-4964-898e-62b85842fb7b.png">
 
-6. Selanjutnya kita akan men-generate public dan private key untuk dimasukan ke dalam jenkins
+5. Selanjutnya kita akan men-generate public dan private key untuk dimasukan ke dalam jenkins
    ```
    ssh-keygen -f prod -t rsa
    ```
@@ -143,32 +137,6 @@
     
     <img width="350" alt="Screen Shot 2022-05-13 at 13 23 02" src="https://user-images.githubusercontent.com/38523284/168223372-b72a7338-f72c-440c-9eac-3a469a242c8e.png">
     
-14. Setelah proses build selesai, kembali ke terminal kemudian masuk ke `prod.kelasdevops.xyz`
-    ```
-    cd prod.kelasdevops.xyz
-    ```
-    
-    Kemudian tambahkan file `.env`
-    ```
-    cp .env.example .env
-    ```
-    
-    Dilanjutkan perintah untuk generate key
-    ```
-    php artisan key:generate
-    ```
-    
-    Jika generate sudah berhasil, selanjutnya kita bagian `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD` file `.env` dengan perintah nano
-    ```
-    nano .env
-    ```
-    <img width="230" alt="Screen Shot 2022-05-13 at 12 42 33" src="https://user-images.githubusercontent.com/38523284/168218709-b83777fc-324b-44ed-8bd2-da0c4521bb63.png">
-
-14. Selanjutnya adalah migrasi data
-    ```
-    php artisan migrate
-    ```
-
 ## Cara Build Pipeline secara Otomatis
 
 1. Sebelumnya perlu dilakukan konfigurasi lagi pada pipeline-nya, dengan cara akses ke menu Configure > di Build Trigger checklis pada `Generic Webhook Trigger` > Isikan Token (diisi sesuai yang diinginkan)

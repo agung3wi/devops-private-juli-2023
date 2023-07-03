@@ -1,4 +1,4 @@
-# Sesi 6 - CI/CD Tools
+# CI/CD Tools
 
 Pada sesi kali ini kita akan membahas beberapa materi, diantaranya :
 1. [Pengenalan CI/CD Tools](https://github.com/agung3wi/panduan-kelasdevops-v3/tree/main/sesi%206/1.%20Pengenalan%20CICD%20Tools)

@@ -3,7 +3,7 @@
 ## Install Jenkins
 * [Referensi Install Jenkins](https://www.jenkins.io/doc/book/installing/)
 
-1. Siapkan instance di AWS dengan ketentuan yang sesuai dengan minimum requirement penginstalan jenkins
+1. Siapkan infrastruktur yang memenuhi requirement, dalam hal ini menggunakan instance di AWS.
    - Menggunakan Ubuntu Server 20.04 LTS (HVM), SSD Volume Type (Free Tier)
      
      <img width="350" alt="Screen Shot 2022-05-11 at 14 27 49" src="https://user-images.githubusercontent.com/38523284/167793340-04b0bbc3-a8fa-4d11-96b1-397b969b7292.png">
@@ -21,17 +21,12 @@
      <img width="350" alt="Screen Shot 2022-05-11 at 14 28 20" src="https://user-images.githubusercontent.com/38523284/167793443-fe960d2d-e38f-4786-9822-c85dfbc3ddae.png">
 
 2. Login SSH menggunakan IPv4 yang terdapat pada detail instance
-3. Masuk ke folder `devopsapril/ansible'
-4. Kemudian ubah nomor IP yang terdapat di file `hosts` dengan menggunakan `nano`
-5. Dilanjutkan menginstall docker terlebih dahulu
-   ```
-   ansible-playbook -i hosts install_docker.yml
-   ```
-6. Setelah selesai install docker, dilanjutkan menginstall jenkins dengan menggunakan sintaks berikut
+3. Install docker engine.
+4. Setelah selesai install docker, dilanjutkan menginstall jenkins dengan menggunakan sintaks berikut
    ```
    docker network create jenkins
    ```
-7. Untuk menjalankan perintah Docker di dalam node Jenkins, unduh dan jalankan gambar `docker:dind` Docker menggunakan perintah run docker berikut:
+5. Untuk menjalankan perintah Docker di dalam node Jenkins, unduh dan jalankan gambar `docker:dind` Docker menggunakan perintah run docker berikut:
    ```
    docker run \
     --name jenkins-docker \
@@ -47,7 +42,7 @@
     docker:dind \
     --storage-driver overlay2
    ```
-8. Selanjutnya kita akan membuat Docker File, dengan mengeksekusi 2 langkah berikut
+6. Selanjutnya kita akan membuat Docker File, dengan mengeksekusi 2 langkah berikut
    ```
    nano Dockerfile
    ```
@@ -71,7 +66,7 @@
    ```
    docker build -t myjenkins-blueocean:2.332.3-1 .
    ```
-9. Setelah langkah membuat Dockerfile selesai, kita akan menjalankan/ run `myjenkins-blueocean:2.332.3-1` image sebagai container di Docker
+7. Setelah langkah membuat Dockerfile selesai, kita akan menjalankan/ run `myjenkins-blueocean:2.332.3-1` image sebagai container di Docker
    ```
    docker run \
     --name jenkins-blueocean \
@@ -87,14 +82,14 @@
     --volume jenkins-docker-certs:/certs/client:ro \
     myjenkins-blueocean:2.332.3-1 
    ```
-10. Jalankan jenkins di browser dengan port sesuai yang tertera pada detail containernya, maka akan tampil laman berikut :
+8. Jalankan jenkins di browser dengan port sesuai yang tertera pada detail containernya, maka akan tampil laman berikut :
     <img width="400" alt="Screen Shot 2022-05-11 at 14 21 36" src="https://user-images.githubusercontent.com/38523284/167792244-bdcf6cad-5247-4e56-a41e-7fa2a6c00079.png">
 
-12. Saat pertama kali akses jenkins, anda wajib untuk memasukan `administrator password` yang dapat diakses dengan sintaks berikut
+9. Saat pertama kali akses jenkins, anda wajib untuk memasukan `administrator password` yang dapat diakses dengan sintaks berikut
     ```
     docker exec -it jenkins-blueocean cat /var/jenkins_home/secrets/initialAdminPassword
     ```
-12. Setelah memasukan `administrator password` kemudian akan masuk ke jendela `Getting started`
+10. Setelah memasukan `administrator password` kemudian akan masuk ke jendela `Getting started`
     - Pilih `install suggested plugins` pada segmen Customize Jenkins, kemudian tunggu sampai instalasi plugin selesai
       
       <img width="350" alt="Screen Shot 2022-05-11 at 14 31 10" src="https://user-images.githubusercontent.com/38523284/167793753-984c0dfd-7af1-4900-819a-b9a46836ff94.png">

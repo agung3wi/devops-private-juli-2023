@@ -1,10 +1,14 @@
 # CI/CD
 
-* [Referensi Pemahaman CI/CD](https://youtu.be/M4CXOocovZ4)
-
 ## Pengertian CI/CD
 
-CI/CD (Continuous Integration Continuous Deployment) merupakan bagian dari proses DevOps, yang menekankan konvergensi pengembangan perangkat lunak dan proses operasional untuk membangun jaringan dan jalur aplikasi yang lebih kohesif. CI/CD juga merupakan sebuah trigger yang terdapat didalam SCM (Source Code Management)
+CI/CD (Continuous Integration Continuous Deployment) CI/CD adalah pendekatan dalam pengembangan perangkat lunak yang bertujuan untuk secara otomatis mengintegrasikan kode yang dikembangkan oleh tim pengembang, melakukan serangkaian pengujian otomatis, dan kemudian menerapkan perubahan kode ke berbagai environment secara berkelanjutan.
+
+Continuous Integration (CI) adalah proses di mana setiap kali pengembang melakukan perubahan pada kode, perubahan tersebut diintegrasikan ke dalam repositori bersama dengan kode yang sudah ada. Setelah integrasi dilakukan, CI akan menjalankan automation test untuk memastikan bahwa perubahan tersebut tidak menyebabkan masalah atau kerusakan pada aplikasi.
+
+Continuous Deployment (CD) adalah langkah selanjutnya setelah CI. Setelah perubahan kode melewati serangkaian tes dan dianggap siap untuk diterapkan, perubahan tersebut secara otomatis diterapkan ke berbagai environmet. Dengan menggunakan otomatisasi dalam proses ini, perubahan dapat cepat diterapkan dan aplikasi dapat segera tersedia bagi pengguna.
+
+CI/CD membantu meningkatkan efisiensi dan kualitas dalam pengembangan perangkat lunak. Dengan menerapkan pendekatan ini, tim pengembang dapat secara teratur dan cepat mengintegrasikan perubahan, mengidentifikasi masalah dengan cepat, dan memperbaiki masalah tersebut sebelum merilis ke lingkungan produksi. Hal ini memungkinkan pengembang untuk merespons permintaan pelanggan dengan cepat dan memberikan perangkat lunak yang lebih handal dan stabil kepada pengguna akhir.
 
 Proses CI/CD mengacu ke SDLC (Software Development Life Cycle) dengan 8 langkah yang membentuk infinity loop karena terus berulang, langkah tersebut diantaranya :
 
@@ -20,20 +24,20 @@ Proses CI/CD mengacu ke SDLC (Software Development Life Cycle) dengan 8 langkah 
 7. Monitor
 8. Plan
 
-Dengan meningkatnya untuk mengadopsi praktik agile, beberapa tools CI/CD telah banyak dirilis dalam beberapa tahun terakhir. Ini sering menyebabkan kebingungan dan menyulitkan seorang engineer perangkat lunak yang bercita-cita tinggi untuk memilih tools CD CI terbaik untuk dikuasai bagi perkembangan karier.
+Dengan meningkatnya untuk mengadopsi praktik agile, beberapa tools CI/CD telah banyak dirilis dalam beberapa tahun terakhir. Ini sering menyebabkan kebingungan dan menyulitkan seorang engineer perangkat lunak yang bercita-cita tinggi untuk memilih tools CI/CD terbaik untuk dikuasai bagi perkembangan karier.
 
 -----
 
 ## Macam - macam CI/CD yang biasa digunakan :
 
 ### 1. Gitlab CI
-Gitlab CI merupakan CI tools yang khusus dibuat oleh gitlab yang sangat mudah. Untuk menjalankan gitlab CI hanya butuh membuat file .gitlab-ci.yml.
+Gitlab CI merupakan CI tools yang khusus dibuat oleh gitlab yang sangat mudah. Untuk menjalankan gitlab CI hanya butuh membuat file .gitlab-ci.yml. Gitlab CI menyediakan layanan gratis dengan batasan tiap bulanya.
 
 ### 2. Jenkins
-Diklasifikasikan di antara tools CI/CD terbaik yang tersedia saat ini, Jenkins adalah tools berbasis open source, lintas platform, dan berbasis Java yang memungkinkan pengguna untuk menguji dan melaporkan secara real time.
+Diklasifikasikan di antara tools CI/CD terbaik yang tersedia saat ini, Jenkins adalah tools berbasis open source, lintas platform, dan berbasis Java yang memungkinkan pengguna untuk menguji dan melaporkan secara real time. Jenkins dapat diinstall secara manual di infrastruktur yang kita punya.
 
 ### 3. Github Action
-Seperti gitlab CI, github action juga merupakan CI/CD tools bawaan dari github. 
+Seperti gitlab CI, github action juga merupakan CI/CD tools bawaan dari github. Github action juga menyediakan layanan gratis dengan batasan tiap bulanya.
 
 ### 4. AWS CodePipeline
 [AWS CodePipeline](https://aws.amazon.com/id/codepipeline/)

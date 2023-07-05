@@ -9,3 +9,4 @@ Pada sesi kali ini kita akan membahas beberapa materi, diantaranya :
 6. [Docker compose](https://github.com/agung3wi/devops-private-juli-2023/tree/master/Docker%20For%20Enterprise/6.%20Docker%20compose)
 
 7. [Build Application](https://github.com/agung3wi/panduan-kelasdevops-v3/tree/main/sesi%203/7.%20Build%20Application)
+8. [Private Repository](https://github.com/agung3wi/devops-private-juli-2023/tree/master/Docker%20For%20Enterprise/8.%20Private%20Repository)

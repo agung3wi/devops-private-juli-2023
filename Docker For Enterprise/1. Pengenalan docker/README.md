@@ -1,41 +1,24 @@
-# Docker
-
-* [Referensi Install Docker](https://docs.docker.com/get-docker)
-* [Docker Hub](hub.docker.com)
-
 ## Pengertian Docker
 
-Docker adalah platform perangkat lunak yang memungkinkan Anda membuat, menguji, dan menerapkan aplikasi dengan cepat. Docker mengemas perangkat lunak ke dalam unit standar yang disebut kontainer yang memiliki semua yang diperlukan perangkat lunak agar dapat berfungsi termasuk pustaka, alat sistem, kode, dan waktu proses. Dengan menggunakan Docker, Anda dapat dengan cepat menerapkan dan menskalakan aplikasi ke lingkungan apa pun dan yakin bahwa kode Anda akan berjalan.
+Docker adalah platform open-source yang digunakan untuk mengelola kontainer aplikasi. Kontainer adalah unit terisolasi yang mengemas aplikasi beserta dependensinya dan menjalankannya di lingkungan yang konsisten di berbagai sistem operasi.
 
-### Perbedaan Container dan Visual Machine
+Docker memanfaatkan fitur virtualisasi tingkat OS (operating system-level virtualization) yang disebut "containerization" untuk mengisolasi aplikasi dalam kontainer. Setiap kontainer berjalan secara independen, tetapi berbagi kernel host yang sama, yang membuatnya lebih ringan dan efisien dibandingkan dengan virtual machine (VM) tradisional.
+
+Perbedaan antara container dan mesin virtual (virtual machine/VM) terletak pada pendekatan virtualisasi yang digunakan.
+
+Virtual Machine (VM) adalah replika virtual dari sistem operasi yang berjalan di atas host fisik. Setiap VM memiliki sistem operasi yang lengkap, termasuk kernel, driver, dan aplikasi. VM menjalankan isolasi penuh antara satu sama lain, sehingga setiap VM dapat menjalankan sistem operasi yang berbeda. Setiap VM juga memerlukan sumber daya yang signifikan, seperti memori, prosesor, dan ruang penyimpanan.
+
+Di sisi lain, kontainer adalah lingkungan yang terisolasi secara logika di dalam sistem operasi yang sama. Kontainer menggunakan fitur virtualisasi tingkat OS (operating system-level virtualization), yang memanfaatkan fitur seperti cgroups dan namespaces di Linux. Kontainer berbagi kernel host dan menggunakan layering file sistem untuk menyediakan isolasi dan lingkungan yang terpisah. Kontainer lebih ringan dan lebih cepat dibandingkan dengan VM karena mereka tidak perlu menjalankan sistem operasi yang lengkap, melainkan hanya membutuhkan dependensi yang diperlukan oleh aplikasi yang berjalan di dalamnya.
+
+Dalam hal manfaatnya, kontainer lebih cepat untuk memulai, lebih efisien dalam penggunaan sumber daya, dan lebih mudah diatur dan didistribusikan. Mereka juga memungkinkan pengembang untuk mengemas aplikasi beserta dependensinya ke dalam unit yang portabel dan dapat dijalankan di lingkungan mana pun yang mendukung Docker atau teknologi kontainer lainnya.
+
+Sementara itu, VM lebih fleksibel karena dapat menjalankan berbagai sistem operasi yang berbeda dan menawarkan isolasi yang lebih kuat antara VM yang berbeda.
+
+Jadi, perbedaan utama antara kontainer dan VM adalah pendekatan virtualisasi yang digunakan, tingkat isolasi, dan penggunaan sumber daya.
+
+### Container VS Visual Machine
 | No | Container | Visual Machine |
 | :--: | :------- | :------------ |
 | 1 | Ringan | Berat |
 | 2 | Ukuran Kecil | Ukuran Besar |
 | 3 | Resource Fleksible | Resource Terbatas |
-
-# System requirements
-
-### WSL 2 backend
-
-- Windows 11 64-bit: Home atau Pro versi 21H2 atau lebih tinggi, atau Enterprise atau Education versi 21H2 atau lebih tinggi.
-- Windows 10 64-bit: Home atau Pro 2004 (build 19041) atau lebih tinggi, atau Enterprise atau Education 1909 (build 18363) atau lebih tinggi.
-- Aktifkan fitur WSL 2 di Windows
-- Prasyarat perangkat keras berikut diperlukan untuk berhasil menjalankan WSL 2 di Windows 10 atau Windows 11 :
-  - Prosesor 64-bit dengan Terjemahan Alamat Tingkat Kedua (SLAT)
-  - RAM sistem 4GB
-  - Dukungan virtualisasi perangkat keras tingkat BIOS harus diaktifkan di pengaturan BIOS
-- Unduh dan instal paket pembaruan kernel Linux.
-
-### Hyper-V backend and Windows containers
-
-- Windows 11 64-bit: Pro versi 21H2 atau lebih tinggi, atau Enterprise atau Education versi 21H2 atau lebih tinggi.
-- Windows 10 64-bit: Pro 2004 (build 19041) atau lebih tinggi, atau Enterprise atau Education 1909 (build 18363) atau lebih tinggi.
-- Fitur Windows Hyper-V dan Containers harus diaktifkan.
-- Prasyarat perangkat keras berikut diperlukan untuk berhasil menjalankan Client Hyper-V di Windows 10 :
-  - Prosesor 64 bit dengan Terjemahan Alamat Tingkat Kedua (SLAT)
-  - RAM sistem 4GB
-  - Dukungan virtualisasi perangkat keras tingkat BIOS harus diaktifkan di pengaturan BIOS
-
-### Catatan :
-> Docker hanya mendukung Docker Desktop di Windows untuk versi Windows 10 yang masih dalam garis waktu servis Microsoft.

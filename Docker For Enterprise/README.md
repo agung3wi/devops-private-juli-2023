@@ -6,7 +6,6 @@ Pada sesi kali ini kita akan membahas beberapa materi, diantaranya :
 3. [Basic CLI untuk docker](https://github.com/agung3wi/panduan-kelasdevops-v3/tree/main/sesi%203/3.%20Basic%20CLI%20untuk%20docker)
 4. [Expose port & mounting](https://github.com/agung3wi/panduan-kelasdevops-v3/tree/main/sesi%203/4.%20Expose%20port%20%26%20mounting)
 5. [Build image dan push ke docker hub](https://github.com/agung3wi/panduan-kelasdevops-v3/tree/main/sesi%203/5.%20Build%20image%20dan%20push%20ke%20docker%20hub)
-6. [Docker compose](https://github.com/agung3wi/panduan-kelasdevops-v3/tree/main/
-sesi%203/6.%20Docker%20compose)
+6. [Docker compose](https://github.com/agung3wi/devops-private-juli-2023/tree/master/Docker%20For%20Enterprise/6.%20Docker%20compose)
 
 7. [Build Application](https://github.com/agung3wi/panduan-kelasdevops-v3/tree/main/sesi%203/7.%20Build%20Application)
